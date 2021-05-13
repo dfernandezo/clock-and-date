@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0" />
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="clock">
+      <div class="display">1:50:32 am</div>
+      <div class="fullDate"></div>
+    </div>
+
+    <script>
+      //clock
+      setInterval(function () {
+        const clock = document.querySelector(".display");
+        var date = new Date();
+        var h = date.getHours();
+        var m = date.getMinutes();
+        var s = date.getSeconds();
+        var day = "AM";
+
+        if (h > 12) {
+          day = "PM";
+          h = h - 12;
+        }
+
+        if (h == 0) {
+          h = 12;
+        }
+
+        if (s < 10) {
+          s = "0" + s;
+        }
+
+        if (m < 10) {
+          m = "0" + m;
+        }
+
+        if (h < 10) {
+          h = "0" + h;
+        }
+        clock.textContent = h + ":" + m + ":" + s + " " + day;
+      });
+
+      var today = new Date();
+      var fullDate = today.toDateString();
+      var showDate = document.querySelector(".fullDate");
+      showDate.textContent = fullDate;
+    </script>
+  </body>
+</html>
