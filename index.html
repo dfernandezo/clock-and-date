@@ -23,32 +23,32 @@
       setInterval(function () {
         const clock = document.querySelector(".display");
         var date = new Date();
-        var h = date.getHours();
-        var m = date.getMinutes();
-        var s = date.getSeconds();
+        var hours = date.getHours();
+        var min = date.getMinutes();
+        var sec = date.getSeconds();
         var day = "AM";
 
-        if (h > 12) {
+        if (hours > 12) {
           day = "PM";
-          h = h - 12;
+          hours = hours - 12;
         }
 
-        if (h == 0) {
-          h = 12;
+        if (hours == 0) {
+          hours = 12;
         }
 
-        if (s < 10) {
-          s = "0" + s;
+        if (sec < 10) {
+          sec = "0" + sec;
         }
 
-        if (m < 10) {
-          m = "0" + m;
+        if (min < 10) {
+          min = "0" + min;
         }
 
-        if (h < 10) {
-          h = "0" + h;
+        if (hours < 10) {
+          hours = "0" + hours;
         }
-        clock.textContent = h + ":" + m + ":" + s + " " + day;
+        clock.textContent = hours + ":" + min + ":" + sec + " " + day;
       });
 
       var today = new Date();
